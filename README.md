@@ -97,6 +97,16 @@ failure response for deposit/withdraw(invalid accountId):
     "message": "invalid accountId"
 }
 
+invalid accountId request payload:
+{"accountId":1,"amount":-100}
+
+failure response for deposit/withdraw(invalid accountId):
+{
+    "status": false,
+    "message": "invalid amount"
+}
+
+
 failure response for withdraw(Insufficient funds):
 {
     "status": false,
