@@ -21,7 +21,9 @@ Bonus:
 Based on every update in account balance, the above application should push the relevant change (deposit/withdrawal) in a queue system
 (preferably but not restrictive - Kafka). Another application should be implementeded that processes that queue and pushes the updates in
 a "change log" table for auditing purposes. -  Tried with Kafka but need to do setup for kafka server to establish connection
+
 Dockerized solution (steps to create dockerfile, instructions)
+
 Logging  -  Done 
 
 ------------------------------------------------------------------------------------
