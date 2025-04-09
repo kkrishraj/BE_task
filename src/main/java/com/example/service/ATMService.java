@@ -66,7 +66,11 @@ public class ATMService {
 	   		 auditLogRepository.save(new AuditLog(accountId+"- WITHDRAWAL FAILED - INVALID ACCOUNTID- "+amount));
 	   		 return processResponse(false,"invalid accountId");
 	   	} else {
-	        if (account.get().getBalance().compareTo(amount) < 0) {
+		       if(amount<=0 ) {
+		   		auditLogRepository.save(new AuditLog(accountId+"- WITHDRAWAL FAILURE - "+amount));
+		            return processResponse(false,"invalid amount");
+	   		}
+	        if (account.get().getBalance() < amount ) {
 	        	auditLogRepository.save(new AuditLog(accountId+"- WITHDRAWAL FAILURE - "+amount));
 	            return processResponse(false,"Insufficient funds");
 	        }
