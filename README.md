@@ -24,10 +24,43 @@ a "change log" table for auditing purposes. -  Tried with Kafka but need to do s
 Dockerized solution (steps to create dockerfile, instructions)
 Logging  -  Done 
 
+------------------------------------------------------------------------------------
+
+DB Scripts:
+
+CREATE TABLE user_account_details (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    mobile_no VARCHAR(100) UNIQUE NOT NULL,
+    balance DECIMAL(15,2) NOT NULL DEFAULT 0.00
+);
+
+
+CREATE TABLE transactions (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    account_id BIGINT,
+    type VARCHAR(10),
+    amount DECIMAL(15,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (account_id) REFERENCES user_account_details(id)
+);
+
+
+CREATE TABLE auditLog (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    message TEXT NOT NULL,
+    received_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
 
 
 initial insertion for user account details:
 SQL Query: insert into user_account_details(name,mobile_no,balance) values ("Krishnan","9629900354",100); accountId is 1 for testing.
+
+-------------------------------------------------------------------------------------
+
+
 
 
 Postman testing details:
