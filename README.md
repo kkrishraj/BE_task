@@ -86,6 +86,8 @@ success response for withdraw:
     "message": "Withdrawal successful"
 }
 
+invalid accountId request payload:
+{"accountId":12,"amount":100}
 
 failure response for deposit/withdraw(invalid accountId):
 {
