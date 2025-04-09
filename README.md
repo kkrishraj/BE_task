@@ -1,17 +1,23 @@
 Deliverable:
+
 You can choose the programming language you want to use however it would be preferrable if we can see the solution in Java or Scala and
 MySQL or Postgres as database.
+
 Description:
 As mentioned above, the exercise should satisfy the following scenario:
 A user has an account at MarlowBank and should be able to control their account through an ATM. The end goal of this project is to:
 Allow users to deposit and withdraw money from an ATM (Keep in mind withdrawal limitations - no overdraft allowed)
 Allow simultaneous access of an account (joint accounts), so it's important to check the order of withdrawals (balance should never fall
 below 0)
+
 Requirements:
+
 An application that handles and covers the scenario above satisfying both points 1 + 2 through an api layer
 All database scripts for the creation of the tables/indices/foreign keys etc.
 Readme instructions for running the application end to end (including setting up the database)
+
 Bonus:
+
 Based on every update in account balance, the above application should push the relevant change (deposit/withdrawal) in a queue system
 (preferably but not restrictive - Kafka). Another application should be implementeded that processes that queue and pushes the updates in
 a "change log" table for auditing purposes. -  Tried with Kafka but need to do setup for kafka server to establish connection
